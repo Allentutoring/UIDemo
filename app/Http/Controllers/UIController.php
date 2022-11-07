@@ -13,6 +13,8 @@ class UIController extends BaseController
         $validated = $request->validated();
         $lang = $validated['lang'] ?? 'kr';
         dump($lang);
+        dump(UIInformation::with('elements')->get());
+        exit;
         $model = UIInformation::with('elements')->findOrFail($validated['key']);
         // dump(UIElements::with(['information'])->lang($lang)->get());
         dump($model->elements);

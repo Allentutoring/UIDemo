@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('lang', '8')->nullable(false);
             $table->string('target', '32')->nullable(false)->comment('html tag 의 id 같은 selector 를 설정');
             $table->string('val', '256')->nullable(false);
+            $table->softDeletes();
             $table->timestamps();
 
             $table->unique(['parent', 'lang', 'target']);

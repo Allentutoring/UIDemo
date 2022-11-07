@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('lang', function (Blueprint $table) {
             $table->string('key', '8')->primary();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

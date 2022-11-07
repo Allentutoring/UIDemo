@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('ui_information', function (Blueprint $table) {
             $table->string('key', '256')->primary();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

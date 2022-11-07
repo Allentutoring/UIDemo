@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->enum('operator', ['equals', 'contains', 'exclude'])->nullable(false);
             $table->string('target', 128)->comment('value 값을 비교할 key, ex) data.user.id')->nullable(false);
             $table->string('value', 128)->nullable(false);
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('ui_element_id')->on('ui_elements')->references('id')->cascadeOnDelete();
