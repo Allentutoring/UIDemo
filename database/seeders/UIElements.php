@@ -2,11 +2,26 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\UIElements as Model;
+use Illuminate\Database\Seeder;
 
 class UIElements extends Seeder
 {
+    const TARGETS = [
+        '#main-title',
+        '#nav-portfolio',
+        '#nav-about',
+        '#nav-contract',
+        '#content-top-title',
+        '#content-top-content',
+        '.portfolio-item:eq(0) img',
+        '.portfolio-item:eq(1) img',
+        '.portfolio-item:eq(2) img',
+        '.portfolio-item:eq(3) img',
+        '.portfolio-item:eq(4) img',
+        '.portfolio-item:eq(5) img',
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -15,29 +30,24 @@ class UIElements extends Seeder
     public function run()
     {
         $information = '/test';
-        $lang = 'en';
-        $this->store($information, $lang, '#main-title');
-        $this->store($information, $lang, '#nav-portfolio');
-        $this->store($information, $lang, '#nav-about');
-        $this->store($information, $lang, '#nav-contact');
+        $langs = [
+            'en',
+            'kr',
+        ];
 
-        $lang = 'kr';
-        $this->store($information, $lang, '#main-title');
-        $this->store($information, $lang, '#nav-portfolio');
-        $this->store($information, $lang, '#nav-about');
-        $this->store($information, $lang, '#nav-contact');
+        collect($langs)->each(function ($lang) use ($information) {
+            collect(self::TARGETS)->each(function ($target) use ($information, $lang) {
+                $this->store($information, $lang, $target);
+            });
+        });
     }
 
     private function store($parent, $lang, $target)
     {
-        try {
-            Model::create([
-                'ui_information_code' => $parent,
-                'lang' => $lang,
-                'target' => $target,
-            ]);
-        } catch (\Throwable $t) {
-
-        }
+        Model::create([
+            'ui_information_code' => $parent,
+            'lang' => $lang,
+            'target' => $target,
+        ]);
     }
 }

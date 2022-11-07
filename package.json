@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "db-reset": "php artisan migrate:fresh && php artisan db:seed"
     },
     "devDependencies": {
         "axios": "^1.1.3",

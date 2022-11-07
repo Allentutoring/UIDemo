@@ -13,12 +13,14 @@
 @include('layout.body-scripts')
 <script>
     $(function () {
+        const URLSearch = new URLSearchParams(location.search);
+        let lang = URLSearch.get('lang') ?? 'kr';
         axios({
             url: '{{ route('api.ui') }}',
             method: 'post',
             data: {
                 code: window.location.pathname,
-                lang: 'kr',
+                lang: lang,
             },
         }).then(function (response) {
             response.data.data.forEach(function (element) {

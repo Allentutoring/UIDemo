@@ -15,18 +15,16 @@ class UIConditionGroup extends Seeder
     public function run()
     {
         $information = '/test';
-        $lang = 'en';
+        $langs = [
+            'en',
+            'kr',
+        ];
 
-        $this->store($information, '#main-title', $lang);
-        $this->store($information, '#nav-portfolio', $lang);
-        $this->store($information, '#nav-about', $lang);
-        $this->store($information, '#nav-contact', $lang);
-
-        $lang = 'kr';
-        $this->store($information, '#main-title', $lang);
-        $this->store($information, '#nav-portfolio', $lang);
-        $this->store($information, '#nav-about', $lang);
-        $this->store($information, '#nav-contact', $lang);
+        collect($langs)->each(function ($lang) use ($information) {
+            collect(UIElements::TARGETS)->each(function ($target) use ($information, $lang) {
+                $this->store($information, $target, $lang);
+            });
+        });
     }
 
     private function store($information, $target, $lang)

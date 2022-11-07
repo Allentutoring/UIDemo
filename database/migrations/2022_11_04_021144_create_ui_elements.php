@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->id();
             $table->string('ui_information_code', '256')->nullable(false);
             $table->string('lang', '8')->nullable(false);
-            $table->string('target', '32')->nullable(false)->comment('html tag 의 id 같은 selector 를 설정');
+            $table->string('target', '128')->nullable(false)->comment('html tag 의 id 같은 selector 를 설정');
             $table->softDeletes();
             $table->timestamps();
 
