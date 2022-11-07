@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('ui_condition_group_id')->nullable(false);
             $table->string('attribute', '32')->nullable(false)->comment('$(target).attr(?, val) ? 에 들어갈 값');
-            $table->mediumText('val')->nullable(false)->comment('$(target).attr(attribute, ?) ? 에 들어갈 값');
+            $table->mediumText('value')->nullable(false)->comment('$(target).attr(attribute, ?) ? 에 들어갈 값');
             $table->softDeletes();
             $table->timestamps();
 

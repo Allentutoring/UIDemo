@@ -13,13 +13,13 @@ class UIRequest extends BaseRequest
     public function rules()
     {
         return [
-            'key' => [
+            'code' => [
                 'required',
-                'exists:'.UIInformation::class.',key',
+                'exists:'.UIInformation::class.',code',
             ],
             'lang' => [
                 'nullable',
-                'exists:'.Lang::class.',key',
+                'exists:'.Lang::class.',code',
             ],
         ];
     }

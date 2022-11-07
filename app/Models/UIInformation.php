@@ -14,6 +14,6 @@ class UIInformation extends BaseModel
 
     public function elements(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(UIElements::class, 'ui_information_key', 'key');
+        return $this->hasMany(UIElements::class, 'ui_information_code', 'code');
     }
 }

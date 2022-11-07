@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('ui_condition_group_id')->nullable(false);
             $table->string('ui_operator_code', 32)->nullable(false);
-            $table->enum('types', [
+            $table->enum('type', [
                 'request', 'response'
             ])->nullable(false)->comment('ui 값을 생성하는데 설정하는 조건 종류, request : 요청 값에 조건을 설정, response : 결과 값에 조건을 설정');
             $table->string('target', 128)->comment('value 값을 비교할 key, ex) data.user.id')->nullable(false);

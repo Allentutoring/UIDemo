@@ -26,12 +26,12 @@ class UIBehaviors extends Seeder
         $this->store($id, 'text', '연락처');
     }
 
-    private function store($id, $attribute, $val)
+    private function store($id, $attribute, $value)
     {
         \App\Models\UIBehaviors::create([
             'ui_condition_group_id' => $id,
             'attribute' => $attribute,
-            'val' => $val,
+            'value' => $value,
         ]);
     }
 }
