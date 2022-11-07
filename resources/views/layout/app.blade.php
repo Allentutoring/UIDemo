@@ -22,9 +22,9 @@
             },
         }).then(function (response) {
             response.data.data.forEach(function (item) {
-                console.log($(item.target));
-                console.log($.type($(item.target)));
-                console.log(item);
+                let tag = $(item.target);
+                console.log(tag);
+                console.log(tag.prop('tagName'));
             });
         });
     });

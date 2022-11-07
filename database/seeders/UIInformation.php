@@ -18,11 +18,11 @@ class UIInformation extends Seeder
         $this->store('/render');
     }
 
-    private function store($key)
+    private function store($code)
     {
-        if (!Model::where('key',$key)->exists()) {
+        if (!Model::where('key',$code)->exists()) {
             Model::create([
-                'key' => $key
+                'code' => $code
             ]);
         }
     }

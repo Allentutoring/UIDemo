@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ui_information', function (Blueprint $table) {
-            $table->string('code', '256')->primary();
+        Schema::create('ui_operator', function (Blueprint $table) {
+            $table->string('code', 32)->primary();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ui_information');
+        Schema::dropIfExists('ui_operator');
     }
 };

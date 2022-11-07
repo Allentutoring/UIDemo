@@ -19,7 +19,7 @@ class UIInformationFactory extends Factory
     public function definition()
     {
         return [
-            'key' => parse_url(fake()->unique()->url())['path']->unique(),
+            'code' => parse_url(fake()->unique()->url())['path']->unique(),
         ];
     }
 }

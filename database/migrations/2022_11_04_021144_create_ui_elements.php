@@ -15,15 +15,14 @@ return new class extends Migration {
     {
         Schema::create('ui_elements', function (Blueprint $table) {
             $table->id();
-            $table->string('parent', '256')->nullable(false);
+            $table->string('ui_information_code', '256')->nullable(false);
             $table->string('lang', '8')->nullable(false);
             $table->string('target', '32')->nullable(false)->comment('html tag 의 id 같은 selector 를 설정');
-            $table->string('val', '256')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 
-            $table->unique(['parent', 'lang', 'target']);
-            $table->foreign('parent')->on('ui_information')->references('key')->cascadeOnDelete();
+            $table->unique(['ui_information_code', 'lang', 'target']);
+            $table->foreign('ui_information_code')->on('ui_information')->references('key')->cascadeOnDelete();
             $table->foreign('lang')->on('lang')->references('key')->cascadeOnDelete();
         });
     }
@@ -36,7 +35,7 @@ return new class extends Migration {
     public function down()
     {
         Schema::table('ui_elements', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('parent');
+            $table->dropConstrainedForeignId('ui_information_code');
             $table->dropConstrainedForeignId('lang');
             $table->dropIfExists();
         });
