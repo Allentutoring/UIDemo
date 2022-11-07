@@ -16,16 +16,16 @@ class UIElements extends Seeder
     {
         $parent = '/render';
         $lang = 'en';
-        $this->store($parent, $lang, 'main-title', 'Start Bootstrap');
-        $this->store($parent, $lang, 'nav-portfolio', 'Portfolio');
-        $this->store($parent, $lang, 'nav-about', 'About');
-        $this->store($parent, $lang, 'nav-contact', 'Contact');
+        $this->store($parent, $lang, '#main-title', 'Start Bootstrap');
+        $this->store($parent, $lang, '#nav-portfolio', 'Portfolio');
+        $this->store($parent, $lang, '#nav-about', 'About');
+        $this->store($parent, $lang, '#nav-contact', 'Contact');
 
         $lang = 'kr';
-        $this->store($parent, $lang, 'main-title', '부트스트랩 시작');
-        $this->store($parent, $lang, 'nav-portfolio', '포트폴링로');
-        $this->store($parent, $lang, 'nav-about', '대하여');
-        $this->store($parent, $lang, 'nav-contact', '연락');
+        $this->store($parent, $lang, '#main-title', '부트스트랩 시작');
+        $this->store($parent, $lang, '#nav-portfolio', '포트폴링로');
+        $this->store($parent, $lang, '#nav-about', '대하여');
+        $this->store($parent, $lang, '#nav-contact', '연락');
     }
 
     private function store($parent, $lang, $target, $val)

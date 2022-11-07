@@ -3,23 +3,31 @@
 <head>
     @include('layout.meta')
     <title>{{ config('name') }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src='https://code.jquery.com/jquery-3.6.1.min.js'></script>
     @include('layout.styles')
     @include('layout.head-scripts')
 </head>
 <body id="page-top">
-    @yield('body')
-    @include('layout.body-scripts')
-    <script>
-        axios.post('/api/ui', {
-        })
-            .then(function (response) {
-                response.forEach(function (ele) {
-                    $('#'+ele.target).html(ele.val);
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
+@yield('body')
+@include('layout.body-scripts')
+<script>
+    $(function () {
+        axios({
+            url: '{{ route('api.ui') }}',
+            method: 'post',
+            data: {
+                key: '/render',
+                lang: 'kr',
+            },
+        }).then(function (response) {
+            response.data.data.forEach(function (item) {
+                console.log($(item.target));
+                console.log($.type($(item.target)));
+                console.log(item);
             });
-    </script>
+        });
+    });
+</script>
 </body>
 </html>

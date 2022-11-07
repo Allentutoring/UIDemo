@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/ui', [\App\Http\Controllers\UIController::class, 'contents']);
+Route::post('/ui', [\App\Http\Controllers\UIController::class, 'contents'])->name('api.ui');

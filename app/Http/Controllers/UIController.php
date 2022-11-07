@@ -20,6 +20,6 @@ class UIController extends BaseController
                 $query->lang($lang);
             }
         ])->findOrFail($validated['key']);
-        return new ResponseTemplate(ResponseAlias::HTTP_OK, $model);
+        return new ResponseTemplate(ResponseAlias::HTTP_OK, $model->elements);
     }
 }

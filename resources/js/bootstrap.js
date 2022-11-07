@@ -1,4 +1,7 @@
 import _ from 'lodash';
+import axios from 'axios';
+import $ from 'jquery';
+
 window._ = _;
 
 /**
@@ -7,8 +10,10 @@ window._ = _;
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-import axios from 'axios';
 window.axios = axios;
+// window.bootstrap = bootstrap;
+// Object.assign(window, { $: jQuery, jQuery })
+window.jQuery = window.$ = $
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
