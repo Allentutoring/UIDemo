@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\FormRequest\UI\UIRequest;
+use App\Http\Request\UI\UIRequest;
+use App\Http\Response\ResponseTemplate;
 use App\Models\UIElements;
 use App\Models\UIInformation;
+use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class UIController extends BaseController
 {
@@ -12,12 +15,11 @@ class UIController extends BaseController
     {
         $validated = $request->validated();
         $lang = $validated['lang'] ?? 'kr';
-        dump($lang);
-        dump(UIInformation::with('elements')->get());
-        exit;
-        $model = UIInformation::with('elements')->findOrFail($validated['key']);
-        // dump(UIElements::with(['information'])->lang($lang)->get());
-        dump($model->elements);
-        dump($model);
+        $model = UIInformation::with([
+            'elements' => function ($query) use ($lang) {
+                $query->lang($lang);
+            }
+        ])->findOrFail($validated['key']);
+        return new ResponseTemplate(ResponseAlias::HTTP_OK, $model);
     }
 }

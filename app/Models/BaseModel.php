@@ -10,8 +10,7 @@ class BaseModel extends Model
     use SoftDeletes;
 
     protected $primaryKey = "id";
+    protected $fillable = ['id'];
     public $timestamps = true;
-    protected $guarded = [];
-    protected $hidden = [];
 
 }

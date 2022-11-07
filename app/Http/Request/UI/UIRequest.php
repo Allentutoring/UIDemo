@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\FormRequest\UI;
+namespace App\Http\Request\UI;
 
+use App\Http\Request\BaseRequest;
 use App\Models\Lang;
 use App\Models\UIInformation;
-use Illuminate\Foundation\Http\FormRequest;
 
-class UIRequest extends FormRequest
+class UIRequest extends BaseRequest
 {
+    protected $redirect = false;
+
     public function rules()
     {
         return [
