@@ -13,17 +13,15 @@ class UIBehaviors extends Seeder
      */
     public function run()
     {
-        $id = 1;
-        $this->store($id, 'text', 'Start Bootstrap');
-        $this->store($id, 'text', 'Portfolio');
-        $this->store($id, 'text', 'About');
-        $this->store($id, 'text', 'Contact');
+        $this->store(1, 'text', 'Start Bootstrap');
+        $this->store(2, 'text', 'Portfolio');
+        $this->store(3, 'text', 'About');
+        $this->store(4, 'text', 'Contact');
 
-        $id = 2;
-        $this->store($id, 'text', '부트스트랩 시작');
-        $this->store($id, 'text', '포트폴리오');
-        $this->store($id, 'text', '대하여');
-        $this->store($id, 'text', '연락처');
+        $this->store(5, 'text', '부트스트랩 시작');
+        $this->store(6, 'text', '포트폴리오');
+        $this->store(7, 'text', '대하여');
+        $this->store(8, 'text', '연락처');
     }
 
     private function store($id, $attribute, $value)

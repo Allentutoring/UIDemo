@@ -2,7 +2,7 @@
 
 namespace App\Http\Service;
 
-use App\Http\Resources\UIResource;
+use App\Http\Resources\UIElements;
 use App\Models\UIInformation;
 
 class UIService
@@ -19,6 +19,6 @@ class UIService
             , 'elements.conditionGroup.conditions'
             , 'elements.conditionGroup.behaviors'
         ])->findOrFail($code);
-        return new UIResource($model);
+        return UIElements::collection($model->elements);
     }
 }

@@ -17,14 +17,23 @@
             url: '{{ route('api.ui') }}',
             method: 'post',
             data: {
-                key: '/render',
+                code: window.location.pathname,
                 lang: 'kr',
             },
         }).then(function (response) {
-            response.data.data.forEach(function (item) {
-                let tag = $(item.target);
-                console.log(tag);
-                console.log(tag.prop('tagName'));
+            response.data.data.forEach(function (element) {
+                let tag = $(element.target);
+                element.group.forEach(function (group) {
+                    group.forEach(function (behavior) {
+                        if (behavior.attribute == 'text') {
+                            tag.text(behavior.value);
+                        } else if (behavior.attribute == 'html') {
+                            tag.html(behavior.value);
+                        } else {
+                            tag.attr(behavior.attribute, behavior.value);
+                        }
+                    });
+                });
             });
         });
     });

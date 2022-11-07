@@ -15,9 +15,10 @@ class UIConditionGroup extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'conditions' => new UIConditionGroup($this->conditions),
-            'behaviors' => new UIConditionGroup($this->behaviors),
-        ];
+        if ($this->conditions->empty()) {
+            return UIBehavior::collection($this->behaviors);
+        } else {
+            return [];
+        }
     }
 }
