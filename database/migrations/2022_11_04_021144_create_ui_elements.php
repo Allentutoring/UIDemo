@@ -22,8 +22,8 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->unique(['ui_information_code', 'lang', 'target']);
-            $table->foreign('ui_information_code')->on('ui_information')->references('key')->cascadeOnDelete();
-            $table->foreign('lang')->on('lang')->references('key')->cascadeOnDelete();
+            $table->foreign('ui_information_code')->on('ui_information')->references('code')->cascadeOnDelete();
+            $table->foreign('lang')->on('lang')->references('code')->cascadeOnDelete();
         });
     }
 

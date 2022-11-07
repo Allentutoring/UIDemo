@@ -10,7 +10,7 @@ class UIInformation extends BaseModel
 
     protected $table = 'ui_information';
     protected $keyType = 'string';
-    protected $primaryKey = "key";
+    protected $primaryKey = "code";
 
     public function elements(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

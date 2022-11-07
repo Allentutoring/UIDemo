@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('ui_conditions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ui_element_id')->nullable(false);
+            $table->unsignedBigInteger('ui_condition_group_id')->nullable(false);
             $table->string('ui_operator_code', 32)->nullable(false);
             $table->enum('types', [
                 'request', 'response'
@@ -24,7 +24,7 @@ return new class extends Migration {
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('ui_element_id')->on('ui_elements')->references('id')->cascadeOnDelete();
+            $table->foreign('ui_condition_group_id')->on('ui_condition_group')->references('id')->cascadeOnDelete();
             $table->foreign('ui_operator_code')->on('ui_operator')->references('code')->cascadeOnDelete();
         });
     }
@@ -37,7 +37,7 @@ return new class extends Migration {
     public function down()
     {
         Schema::table('ui_conditions', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('ui_element_id');
+            $table->dropConstrainedForeignId('ui_condition_group_id');
             $table->dropConstrainedForeignId('ui_operator_code');
             $table->dropIfExists();
         });

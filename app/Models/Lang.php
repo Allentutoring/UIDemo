@@ -4,6 +4,7 @@ namespace App\Models;
 
 class Lang extends BaseModel
 {
-    protected $primaryKey = 'key';
+    protected $primaryKey = 'code';
+    protected $keyType = 'string';
     protected $table = 'lang';
 }

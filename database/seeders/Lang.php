@@ -23,7 +23,7 @@ class Lang extends Seeder
     {
         try {
             Model::create([
-                'key' => $code
+                'code' => $code
             ]);
         } catch (\Throwable $t) {
 

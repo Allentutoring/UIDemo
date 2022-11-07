@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lang', function (Blueprint $table) {
-            $table->string('key', '8')->primary();
+            $table->string('code', '8')->primary();
             $table->softDeletes();
             $table->timestamps();
         });
