@@ -14,28 +14,27 @@ class UIElements extends Seeder
      */
     public function run()
     {
-        $information = '/render';
+        $information = '/test';
         $lang = 'en';
-        $this->store($information, $lang, '#main-title', 'Start Bootstrap');
-        $this->store($information, $lang, '#nav-portfolio', 'Portfolio');
-        $this->store($information, $lang, '#nav-about', 'About');
-        $this->store($information, $lang, '#nav-contact', 'Contact');
+        $this->store($information, $lang, '#main-title');
+        $this->store($information, $lang, '#nav-portfolio');
+        $this->store($information, $lang, '#nav-about');
+        $this->store($information, $lang, '#nav-contact');
 
         $lang = 'kr';
-        $this->store($information, $lang, '#main-title', '부트스트랩 시작');
-        $this->store($information, $lang, '#nav-portfolio', '포트폴링로');
-        $this->store($information, $lang, '#nav-about', '대하여');
-        $this->store($information, $lang, '#nav-contact', '연락');
+        $this->store($information, $lang, '#main-title');
+        $this->store($information, $lang, '#nav-portfolio');
+        $this->store($information, $lang, '#nav-about');
+        $this->store($information, $lang, '#nav-contact');
     }
 
-    private function store($parent, $lang, $target, $val)
+    private function store($parent, $lang, $target)
     {
         try {
             Model::create([
                 'ui_information_code' => $parent,
                 'lang' => $lang,
                 'target' => $target,
-                'val' => $val,
             ]);
         } catch (\Throwable $t) {
 

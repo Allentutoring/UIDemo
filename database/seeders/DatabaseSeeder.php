@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
             Lang::class,
             UIInformation::class,
             UIElements::class,
+            UIConditionGroup::class,
+            UIConditions::class,
+            UIBehaviors::class,
         ]);
     }
 }

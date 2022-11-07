@@ -20,7 +20,7 @@ class UIInformation extends Seeder
 
     private function store($code)
     {
-        if (!Model::where('key',$code)->exists()) {
+        if (!Model::where('code',$code)->exists()) {
             Model::create([
                 'code' => $code
             ]);
